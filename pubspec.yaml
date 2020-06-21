@@ -23,10 +23,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_bloc: ^4.0.1
+
   http: ^0.12.1
   cached_network_image: ^2.2.0+1
-  equatable: ^1.2.0
+
 
 
 
