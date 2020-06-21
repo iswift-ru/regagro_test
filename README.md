@@ -1,16 +1,5 @@
-# regagrotest
-
-A new Flutter application.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Задача для разработчика МП (мобильных приложений):
+1. Создать приложение с 3-мя экранами;
+2.1. На первом экране - поле ввода и две кнопки. В поле ввода ввести можно только число от 1 до 10 (идентификатор пользователя). Кнопка "Найти" осуществляет переход на второй экран. Кнопка "List"  осуществляет переход на третий экран.
+2.2. На втором экране отображается введеный идентификатор и вся информация о пользователя (имя, фамилия, email, аватар в виде картинки) по этому тестовому API https://reqres.in/ 
+2.3 На третьем экране отображается прокручиваемый список со списком пользователей и их данными (имя, фамилия) по тестовому API https://reqres.in/
