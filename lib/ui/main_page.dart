@@ -40,12 +40,12 @@ class _MainPageState extends State<MainPage> {
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(
-                      horizontal: 50.0, vertical: 50),
+                      horizontal: 15.0, vertical: 50),
                   child: TextFormField(
                     textInputAction: TextInputAction.search,
                     autofocus: false,
                     style:
-                        TextStyle(height: 1, fontSize: 50, color: Colors.green),
+                        TextStyle(height: 1, fontSize: 20, color: Colors.green),
                     cursorWidth: 10,
                     cursorColor: Colors.amber,
                     cursorRadius: Radius.circular(15),
@@ -57,7 +57,7 @@ class _MainPageState extends State<MainPage> {
                         errorStyle: TextStyle(fontSize: 20),
                         icon: Icon(
                           Icons.search,
-                          size: 100,
+                          size: 50,
                           color: Colors.green,
                         ),
                         labelText: 'Введите ID от 1 до 10',
