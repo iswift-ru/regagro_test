@@ -1,9 +1,10 @@
 import 'dart:convert';
 import 'dart:async';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:regagrotest/models/user_detail_model.dart';
 import 'package:http/http.dart' as http;
-
+import 'package:regagrotest/res/app_strings.dart';
 import 'main_page.dart';
 
 class FindPage extends StatefulWidget {
@@ -23,14 +24,14 @@ class _FindPageState extends State<FindPage> {
   }
 
   Future<UserDetailModel> getDetailResults() async {
-    String url = 'https://reqres.in/api/users/$id';
-    print(url);
-    var response = await http.get(url);
+    var response = await http.get(AppString.userDetailUrl);
+
     if (response.statusCode == 200) {
       var result = UserDetailModel.fromJson(jsonDecode(response.body));
-      print(response.statusCode);
 
       return result;
+    } else {
+      return throw Exception();
     }
   }
 
@@ -38,7 +39,7 @@ class _FindPageState extends State<FindPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('ID $id'),
+          title: Text('Поиск по ID $id'),
         ),
         body: FutureBuilder<UserDetailModel>(
           future: getDetailResults(),
@@ -69,11 +70,10 @@ class _FindPageState extends State<FindPage> {
                     SizedBox(
                       height: 10,
                     ),
-                    CircleAvatar(
-                      backgroundImage: NetworkImage(
-                        snap.data.data.avatar,
-                      ),
-                      radius: 90,
+                    CachedNetworkImage(
+                      placeholder: (context, url) =>
+                          CircularProgressIndicator(),
+                      imageUrl: snap.data.data.avatar,
                     ),
                     SizedBox(
                       height: 10,

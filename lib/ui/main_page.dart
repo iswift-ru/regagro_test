@@ -1,15 +1,12 @@
-import 'dart:convert';
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'package:regagrotest/models/users_model.dart';
 import 'package:regagrotest/ui/find_page.dart';
 import 'package:regagrotest/ui/list_page.dart';
 
 final myControllerId = TextEditingController();
 final _formKey = GlobalKey<FormState>();
-//final globalKey = GlobalKey<ScaffoldState>();
+
 String id;
 
 class MainPage extends StatefulWidget {
@@ -37,22 +34,27 @@ class _MainPageState extends State<MainPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
+                Image.network(
+                  'http://regagro.ru/images/logo2.png',
+//                  width: double.infinity,
+                ),
                 Padding(
                   padding: const EdgeInsets.symmetric(
-                      horizontal: 50.0, vertical: 30),
+                      horizontal: 50.0, vertical: 50),
                   child: TextFormField(
                     textInputAction: TextInputAction.search,
                     autofocus: false,
                     style:
                         TextStyle(height: 1, fontSize: 50, color: Colors.green),
-                    cursorWidth: 60,
+                    cursorWidth: 10,
                     cursorColor: Colors.amber,
-                    cursorRadius: Radius.circular(25),
+                    cursorRadius: Radius.circular(15),
                     maxLength: 2,
                     textAlign: TextAlign.center,
                     keyboardType: TextInputType.number,
 
                     decoration: InputDecoration(
+                        errorStyle: TextStyle(fontSize: 20),
                         icon: Icon(
                           Icons.search,
                           size: 100,
@@ -74,23 +76,16 @@ class _MainPageState extends State<MainPage> {
                       }
                       if (value.isNotEmpty) {
                         var numberId = int.tryParse(value);
+
                         if (numberId > 10 ||
                             numberId == 0 ||
                             numberId == null) {
-                          Scaffold.of(context).showSnackBar(SnackBar(
-                              content: Text('Вы указали несуществующий ID'),
-                              backgroundColor: Colors.red));
-                          myControllerId.clear();
+                          return 'Вы указали неправльный ID';
                         } else {
                           id = myControllerId.text;
-                          print('ID $id');
-                          Scaffold.of(context).showSnackBar(SnackBar(
-                              content: Text('Форма успешно заполнена'),
-                              backgroundColor: Colors.green));
 
-//                          myControllerId.clear();
+                          myControllerId.clear();
                         }
-                        print('NumberID ${numberId.runtimeType}');
                       }
                     },
                   ),
@@ -114,7 +109,6 @@ class _MainPageState extends State<MainPage> {
                                     id: id,
                                   ),
                                 ));
-                            print('Передаём на второй экран Id $id');
                           }
                         });
                       },
