@@ -36,7 +36,7 @@ class _MainPageState extends State<MainPage> {
               children: <Widget>[
                 Image.network(
                   'http://regagro.ru/images/logo2.png',
-//                  width: double.infinity,
+                  width: 150,
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(
