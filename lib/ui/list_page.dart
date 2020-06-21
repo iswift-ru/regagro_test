@@ -2,10 +2,8 @@ import 'dart:convert';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
-
 import 'package:regagrotest/models/users_model.dart';
 import 'package:regagrotest/res/app_strings.dart';
-
 import 'find_page.dart';
 import 'main_page.dart';
 
