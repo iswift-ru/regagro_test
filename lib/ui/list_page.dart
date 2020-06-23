@@ -41,8 +41,9 @@ class _ListPageState extends State<ListPage> {
         future: getResults(),
         builder: (context, snap) {
           if (snap.hasData) {
+            List<Datum> _data = snap.data;
             return ListView.builder(
-                itemCount: 6,
+                itemCount: _data.length,
                 itemBuilder: (context, ind) {
                   return ListTile(
                     title: Text(
